@@ -3,7 +3,6 @@ from rango.models import Category, Page
 
 class PageAdmin(admin.ModelAdmin):
     list_display = ('title','category','url')
-
     
 # Register your models here.Is
 admin.site.register(Category) 
