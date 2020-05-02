@@ -15,22 +15,22 @@ from datetime import datetime
 
 # Create your views here.
 def index(request): 
-    category_list = Category.objects.order_by('-likes')[:5]
+    category_list = Category.objects.order_by('-likes')[:5] 
     page_list = Page.objects.order_by('-views')[:5]
-    context_dict={}
-    context_dict['boldmessage'] = 'Crunchy, creamy, cookie, candy, cupcake!'
-    context_dict['categories']=category_list
-    context_dict['pages']=page_list
-    visitor_cookie_handler(request)
-    context_dict['visits'] = request.session['visits']
-    response = render(request, 'rango/index.html', context=context_dict)
-    return response
+
+    context_dict = {} 
+    context_dict['boldmessage'] = 'Crunchy, creamy, cookie, candy, cupcake!' 
+    context_dict['categories'] = category_list 
+    context_dict['pages'] = page_list
+    
+    visitor_cookie_handler(request) 
+    return render(request, 'rango/index.html', context=context_dict)
+
 
 def about(request):
-    if request.session.test_cookie_worked(): 
-        print("TEST COOKIE WORKED!") 
-        request.session.delete_test_cookie()
     context_dict = {'boldmessage': 'Dorian Clark'}
+    visitor_cookie_handler(request)
+    context_dict['visits'] = request.session['visits']
     return render(request, 'rango/about.html', context=context_dict)
 
 
