@@ -29,7 +29,7 @@ SECRET_KEY = 'j+@1i+(7_+c2vnwyvf*zt6kywbe99t!0-d7^7_=^6=jep5*_+d'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['Dorian.pythonanywhere.com']
 
 
 # Application definition
